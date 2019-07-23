@@ -3,7 +3,7 @@ applications:
 - name: pal-tracker
   path: build/libs/pal-tracker-rgs.jar
   routes:
-  - route: pal-tracker-rgs.pal.pivotal.io
+  - route: pal-tracker-rgs.apps.evans.pal.pivotal.io
   env:
     WELCOME_MESSAGE: Hello from the review environment
     JBP_CONFIG_OPEN_JDK_JRE: "{ jre: { version: 11.+ } }"
