@@ -25,6 +25,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+<<<<<<< HEAD
 
     testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
     testCompile("org.mockito:mockito-core:2.23.4")
@@ -37,3 +38,15 @@ bootRun.environment([
 test.environment([
      "WELCOME_MESSAGE": "Hello from test",
 ])
+=======
+    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+}
+
+bootRun.environment([
+        "WELCOME_MESSAGE": "hello",
+])
+
+test.environment([
+        "WELCOME_MESSAGE": "Hello from test",
+])
+>>>>>>> 4ec24e575cf6fe2cdd91496554bd0762428fc883

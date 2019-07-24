@@ -6,11 +6,16 @@ env:
   - RELEASE_TAG="release-$TRAVIS_BUILD_NUMBER"
 if: tag IS blank
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ec24e575cf6fe2cdd91496554bd0762428fc883
 jobs:
   include:
     - stage: build and publish
       language: java
       jdk: openjdk11
+<<<<<<< HEAD
       addons:
         mariadb: '10.2'
       install: skip
@@ -18,6 +23,10 @@ jobs:
         - mysql -uroot < databases/tracker/create_databases.sql
         - curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.1.1/flyway-commandline-5.1.1-linux-x64.tar.gz | tar xvz
         - flyway-*/flyway -url="jdbc:mysql://localhost:3306/tracker_test" -locations=filesystem:databases/tracker -user=tracker -password= clean migrate
+=======
+      install: skip
+      before_script:
+>>>>>>> 4ec24e575cf6fe2cdd91496554bd0762428fc883
         - chmod 777 gradlew
       script: ./gradlew clean build
       before_deploy:
@@ -27,6 +36,7 @@ jobs:
       deploy:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
+<<<<<<< HEAD
         file: "build/libs/pal-tracker.jar"
         skip_cleanup: true
     - stage: deploy to cf
@@ -46,6 +56,17 @@ jobs:
       before_script:
         - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $CF_SPACE
         - scripts/migrate-databases.sh pal-tracker .
+=======
+        file: "build/libs/pal-tracker-rgs.jar"
+        skip_cleanup: true
+    - stage: deploy to cf
+      language: bash
+      script:
+        - echo "Downloading $RELEASE_TAG"
+        - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-tracker/releases/download/$RELEASE_TAG/pal-tracker-rgs.jar
+      before_deploy:
+        - echo "Deploying $RELEASE_TAG to Cloud Foundry"
+>>>>>>> 4ec24e575cf6fe2cdd91496554bd0762428fc883
       deploy:
         provider: cloudfoundry
         api: $CF_API_URL
