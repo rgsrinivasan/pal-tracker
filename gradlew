@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-<<<<<<< HEAD
-=======
 #
 # Copyright 2015 the original author or authors.
 #
@@ -48,7 +46,7 @@ APP_BASE_NAME=`basename "$0"`
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 <<<<<<< HEAD
 DEFAULT_JVM_OPTS='"-Xmx64m"'
-=======
+
 DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
 >>>>>>> 4ec24e575cf6fe2cdd91496554bd0762428fc883
 
